@@ -25,13 +25,18 @@ addButton.addEventListener("click",function(){
 
 fireBaseIdeasRef.on("child_added", function(snapshot) {
   var idea = snapshot.val();
-  var newIdeaElement= document.createElement("p");
-  newIdeaElement.textContent= idea;
-  document.getElementById('ideas').appendChild(newIdeaElement);
+  addIdea(idea, snapshot.key);
+  //var newIdeaElement= document.createElement("p");
+  //newIdeaElement.textContent= idea;
+  //document.getElementById('ideas').appendChild(newIdeaElement);
 });
 
-function addIdea(idea){
+function addIdea(idea, key){
   var newIdeaElement= document.createElement("p");
   newIdeaElement.textContent=idea;
+  newIdeaElement.id=key;
   document.getElementById("ideas").appendChild(newIdeaElement);
+
+//newIdeaElement.addEventListener("click")
+
 }
