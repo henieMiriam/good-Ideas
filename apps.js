@@ -31,12 +31,20 @@ fireBaseIdeasRef.on("child_added", function(snapshot) {
   //document.getElementById('ideas').appendChild(newIdeaElement);
 });
 
+//las siguientes dos lineas hacen que el dato removido se actualice de inmediato en todos los usuarios
+fireBaseIdeasRef.on("child_removed", function(snapshot){
+  document.getElementById(snapshot.key).remove();
+})
+
 function addIdea(idea, key){
   var newIdeaElement= document.createElement("p");
   newIdeaElement.textContent=idea;
   newIdeaElement.id=key;
   document.getElementById("ideas").appendChild(newIdeaElement);
-
-//newIdeaElement.addEventListener("click")
+//evento para eliminar datos de la base
+newIdeaElement.addEventListener("click", function(){
+  var ideaRef= fireBaseIdeasRef.child(this.id);
+  ideaRef.remove();
+})
 
 }
