@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+
     <title>lluvia de ideas</title>
   </head>
   <body>
     <form id="idea-form" action="index.html" method="post">
-      <input type="text" name="idea-input" plaiceholder="whats your idea" value="">
-      <button type="submit" name="button"></button>
+      <input type="text" id="idea-input" plaiceholder="whats your idea" value="">
+      <button type="button" id="add-button">Add</button>
     </form>
-    <h1>ideas</h>
+    <h1>ideas</h1>
     <section id="ideas">
 
     </section>
